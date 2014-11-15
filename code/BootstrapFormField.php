@@ -20,16 +20,10 @@ class BootstrapFormField extends DataExtension {
 		"form-group"
 	);
 
-	protected $labelClasses = array(
-	);
-
-	protected $inputClasses = array(
-	);
-
 
 	/**
 	 * Adds a HTML5 placeholder attribute to the form field
-	 *
+	 * 
 	 * @param $text the placeholder text to add
 	 * @return BootstrapFormField
 	 */
@@ -37,7 +31,7 @@ class BootstrapFormField extends DataExtension {
 		return $this->owner->setAttribute("placeholder",$text);
 	}
 
-
+	
 	/**
 	 * Adds a block of help text to the form field. (HTML safe).
 	 * By default, this text appears below a field and its label.
@@ -95,61 +89,13 @@ class BootstrapFormField extends DataExtension {
 	}
 
 	/**
-	 * Allows adding custom classes to the input
-	 *
+	 * Allows adding custom classes to the holder 
+	 * 
 	 * @param string $class the class
-	 *
+	 * 
 	 * @return BootstrapFormField
 	 */
-	public function addInputClass($class) {
-		$this->inputClasses[] = $class;
-		return $this->owner;
-	}
-
-	/**
-	 * returns the input classes to be used in templates
-	 * also triggers checking for error messages
-	 *
-	 * @return string of classes
-	 */
-	public function InputClasses() {
-		$this->loadErrorMessage();
-
-		return implode(" ",$this->inputClasses);
-	}
-
-		/**
-	 * Allows adding custom classes to the label
-	 *
-	 * @param string $class the class
-	 *
-	 * @return BootstrapFormField
-	 */
-	public function addLabelClass($class) {
-		$this->labelClasses[] = $class;
-		return $this->owner;
-	}
-
-	/**
-	 * returns the label classes to be used in templates
-	 * also triggers checking for error messages
-	 *
-	 * @return string of classes
-	 */
-	public function LabelClasses() {
-		$this->loadErrorMessage();
-
-		return implode(" ",$this->labelClasses);
-	}
-
-	/**
-	 * Allows adding custom classes to the holder
-	 *
-	 * @param string $class the class
-	 *
-	 * @return BootstrapFormField
-	 */
-	public function addHolderClass($class) {
+	public function addHolderClass($class) {		
 		$this->holderClasses[] = $class;
 		return $this->owner;
 	}
@@ -157,7 +103,7 @@ class BootstrapFormField extends DataExtension {
 	/**
 	 * returns the holder classes to be used in templates
 	 * also triggers checking for error messages
-	 *
+	 * 
 	 * @return string of classes
 	 */
 	public function HolderClasses() {
@@ -181,7 +127,7 @@ class BootstrapFormField extends DataExtension {
 	/**
 	 * checks for error messages in owner form field
 	 * adds error class to holder and loads error message as helptext
-	 *
+	 * 
 	 * @todo allow setting error message as inline
 	 */
 	private function loadErrorMessage() {
@@ -190,5 +136,5 @@ class BootstrapFormField extends DataExtension {
 			$this->addHelpText($this->owner->message);
 		}
 	}
-
+	
 }
